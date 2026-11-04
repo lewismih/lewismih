@@ -1,0 +1,41 @@
+name: Profile Cards
+on:
+  schedule:
+    - cron: "0 3 * * *"          # once per day
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # --- Trophies (static SVG) ---
+      - name: Generate trophies
+        uses: soulteary/github-profile-trophy-action@v1
+        with:
+          options: "username=${{ github.repository_owner }}&theme=onedark&column=7&margin-w=15&margin-h=15"
+          path: trophy.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+
+      # --- Achievements / Metrics (static SVG) ---
+      - name: Generate achievements
+        uses: lowlighter/metrics@latest   # or your-fork/metrics@master for max control
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics.achievements.svg
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: C
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trophy.svg metrics.achievements.svg
+          git diff --staged --quiet || (git commit -m "chore: update profile cards [skip ci]" && git push)
