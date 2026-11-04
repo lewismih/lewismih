@@ -34,9 +34,10 @@ I work across cybersecurity, IT infrastructure and workflow automation, with a p
 
 ---
 
-## 🏆 GitHub Trophies
+## 🏆 GitHub Stats
 
-![GitHub Stats](https://github-readme-stats-xi-five-51.vercel.app/api?username=lewismih&show_icons=true&theme=radical)
+<img alt="my stats" align="left" width="47%" src="https://github-readme-stats-xi-five-51.vercel.app/api?username=lewismih&show_icons=true&theme=radical"/>
+<img alt="top langs" align="left" width="47%" src="https://github-readme-stats-xi-five-51.vercel.app/api/top-langs/?username=lewismih&layout=compact&theme=tokyonight"/>
 
 ---
 
