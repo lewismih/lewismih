@@ -1,0 +1,55 @@
+name: GlanceCard
+
+on:
+  schedule:
+    - cron: "0 4 * * *"          # once a day
+  workflow_dispatch:             # allow manual runs
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate GlanceCard
+        uses: gfazioli/glancecard@v0.3.0
+        with:
+          profile: ${{ github.repository_owner }}
+          theme: both                 # generates both light + dark
+          calendar: chart             # or "grid" if you prefer the classic contribution grid
+          # Optional: add a specific repo if you want a repo card too
+          # repos: ${{ github.repository_owner }}/${{ github.repository_owner }}
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Create the folder your README expects
+          mkdir -p glancecard
+
+          # Move / copy the generated files into the expected paths
+          # (GlanceCard usually writes them in the root or a subfolder – adjust if needed)
+          if [ -f profile-light.svg ]; then
+            mv profile-light.svg glancecard/profile-light.svg
+          fi
+          if [ -f profile-dark.svg ]; then
+            mv profile-dark.svg glancecard/profile-dark.svg
+          fi
+
+          # Also try common alternative locations
+          find . -name "profile-light.svg" -exec cp {} glancecard/profile-light.svg \; 2>/dev/null || true
+          find . -name "profile-dark.svg"  -exec cp {} glancecard/profile-dark.svg  \; 2>/dev/null || true
+
+          git add glancecard/ || true
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update GlanceCard [skip ci]"
+            git push
+          fi
