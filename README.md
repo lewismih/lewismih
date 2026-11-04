@@ -12,67 +12,6 @@ I'm particularly interested in security engineering, Linux environments, workflo
 
 ---
 
-## 🛡️ Cybersecurity
-
-Interested in identifying vulnerabilities, understanding threats, and improving the security of digital environments.
-
-- Web application security testing and vulnerability assessment.
-- Network reconnaissance and security analysis.
-- Security monitoring, SIEM and threat detection.
-- Vulnerability scanning and remediation support.
-- Penetration testing methodologies and security research.
-- DDoS protection and web security.
-- Security tools, OSINT and attack-surface discovery.
-
-**Tools:** Burp Suite · Wazuh · Wireshark · Nmap · Nuclei · Acunetix · OpenVAS · WPScan · SQLMap · Cloudflare · Shodan · Censys
-
----
-
-## 🖥️ System Administration & IT Infrastructure
-
-Experienced in supporting, maintaining, and troubleshooting IT environments, from end-user systems to enterprise infrastructure.
-
-- Linux and Windows systems administration.
-- Server administration and troubleshooting.
-- Network infrastructure and connectivity.
-- Active Directory, LDAP and access management.
-- Virtualization using VMware vSphere and XenServer.
-- Endpoint security and device management.
-- IT service management and technical support.
-- Backup, monitoring and infrastructure maintenance.
-- VPNs, firewalls and network security.
-
-**Technologies:** Ubuntu · CentOS · Kali Linux · Windows · VMware · XenServer · Cisco · Sophos · McAfee · SysAid · ManageEngine
-
----
-
-## ⚙️ Automation & n8n
-
-Exploring practical automation to reduce repetitive work, connect applications, and improve productivity.
-
-- Workflow automation using n8n.
-- Application integrations and API connectivity.
-- Automating repetitive technical processes.
-- AI-assisted workflows and intelligent task orchestration.
-- Data processing and workflow logic.
-- Exploring self-hosted automation and open-source AI tools.
-
-**Interests:** n8n · APIs · Webhooks · JSON · Python · AI Agents · Open-source automation
-
----
-
-## 🎨 Graphic Design & Creative Work
-
-Outside infrastructure and security, I enjoy graphic design and visual communication.
-
-- Digital graphics and promotional materials.
-- Branding and visual identity.
-- Social media and event creatives.
-- Typography, layout and composition.
-- Creative communication and presentation design.
-
----
-
 ## 🧰 Tools & Technologies
 
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -105,17 +44,17 @@ Currently pursuing further development in cybersecurity, security engineering, a
 
 ## 📊 GitHub Statistics
 
-<!-- Replace YOUR_GITHUB_USERNAME with your actual GitHub username -->
+<!-- Replace lewismih with your actual GitHub username -->
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lewismih&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide_border=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lewismih&layout=compact&theme=tokyonight&hide_border=true)
 
 ---
 
 ## 🏆 GitHub Achievements
 
-![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=YOUR_GITHUB_USERNAME&theme=tokyonight&no-frame=true&margin-w=8)
+![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=lewismih&theme=tokyonight&no-frame=true&margin-w=8)
 
 ---
 
