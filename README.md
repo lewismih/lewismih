@@ -36,7 +36,7 @@ I work across cybersecurity, IT infrastructure and workflow automation, with a p
 
 ## 🏆 GitHub Trophies
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lewismih&show_icons=true&theme=radical)
+![GitHub Stats](https://github-readme-stats-xi-five-51.vercel.app/api?username=lewismih&show_icons=true&theme=radical)
 
 ---
 
