@@ -2,8 +2,8 @@ name: Profile Cards
 
 on:
   schedule:
-    - cron: "0 3 * * *"          # once a day at 03:00 UTC
-  workflow_dispatch:             # allow manual runs
+    - cron: "0 3 * * *"
+  workflow_dispatch:
 
 jobs:
   generate:
@@ -22,8 +22,9 @@ jobs:
           options: "username=${{ github.repository_owner }}&theme=onedark&column=7&margin-w=15&margin-h=15"
           path: trophy.svg
           token: ${{ secrets.METRICS_TOKEN }}
+        continue-on-error: true          # don't stop the whole job if this fails
 
-      # ---------- ACHIEVEMENTS (Metrics) ----------
+      # ---------- ACHIEVEMENTS ----------
       - name: Generate achievements
         uses: lowlighter/metrics@latest
         with:
@@ -33,18 +34,34 @@ jobs:
           plugin_achievements: yes
           plugin_achievements_display: compact
           plugin_achievements_threshold: C
-          output_action: none          # we handle the commit ourselves
+          output_action: none
+        continue-on-error: true          # don't stop the whole job if this fails
 
-      # ---------- COMMIT ----------
+      # ---------- SAFE COMMIT ----------
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Only add files that exist
-          [ -f trophy.svg ] && git add trophy.svg || true
-          [ -f metrics.achievements.svg ] && git add metrics.achievements.svg || true
+          echo "Checking generated files..."
+          ls -la *.svg || true
 
+          # Only stage files that actually exist
+          if [ -f trophy.svg ]; then
+            echo "Adding trophy.svg"
+            git add trophy.svg
+          else
+            echo "trophy.svg not found – skipping"
+          fi
+
+          if [ -f metrics.achievements.svg ]; then
+            echo "Adding metrics.achievements.svg"
+            git add metrics.achievements.svg
+          else
+            echo "metrics.achievements.svg not found – skipping"
+          fi
+
+          # Commit only if something was staged
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
